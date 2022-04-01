@@ -1,0 +1,10 @@
+
+{{ config(materialized='table') }}
+
+with LOCATIONS as (
+SELECT distinct Location_iso_code, CONTINENT, COUNTRY, LOCATION, ISLAND, PROVINCE
+ FROM FIVETRAN_INTERVIEW_DB.GOOGLE_SHEETS.COVID_19_INDONESIA_REUBEN_TARIBO
+)
+
+select *
+from LOCATIONS
